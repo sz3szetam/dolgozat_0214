@@ -1,16 +1,8 @@
 // Megvizsgálja, hogy a megadott karakter betű-e
-function isLetter(chr) {
-    let betuk = /a-z/;
-    if(betuk.test(chr) || chr == "_" || chr == "3" || chr =="" || chr ==" ")
-    {
-        return false;
+let isLetter = chr => !/a-z/.test(chr) && chr != "_" && chr != "3" && chr !="" && chr !=" ";
     
-    }
-    else
-    {
-        return true;
-    }
-}
+   
+
 
 console.log("----- Betű-e -----")
 console.log("1.", isLetter("a") == true);
@@ -24,20 +16,9 @@ console.log("8.", isLetter("Í") == true);
 
 
 // Megvizsgálja, hogy a megadott paraméter szám-e
-let isNumber = str  => 
-{
-    if(isNaN(str) || str == " " || str == "")
-    {
-        return false;
-
-    }
-    else
-    {
-        return true;
-    }
-  
+let isNumber = str  => !isNaN(str) && str != " " && str != "";
+    
  
-} 
 
 
 console.log("----- Szám-e -----")
@@ -54,17 +35,11 @@ console.log("8.", isNumber("3.14") == true);
 // Elég erős-e a jelszó
 // 12 karaktert, kis- és nagybetűt, számot, valamint speciális karaktert tartalmazzon 
 // speciális karakter: -_+#.&@$ (minusz, aláhúzás, plusz, hashtag, pont, és, kukac, dollár)
-function isPasswordStrong(pass) {
-    if(pass.length >= 12 && /\d/.test(pass) && /a-z/.test(pass) && /A-Z/.test(pass) && /[-_+#.&@$]/.test(pass))
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+let isPasswordStrong = pass => pass.length >= 12 && /\d/.test(pass) && /[a-z]/.test(pass) && /[A-Z]/.test(pass) && /[-_+#.&@$]/.test(pass)
+    
 
-}
+
+
 
 console.log("----- Jelszó erős-e -----")
 console.log("1.", isPasswordStrong("aBc-3aBc-3aBc-3") == true);
